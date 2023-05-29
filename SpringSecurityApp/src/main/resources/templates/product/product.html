@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="icon" type="image/png" href="../img/icon.svg">
+
+    <meta name="description" content="игрушки аниме, магазин игрушек,">
+    <meta name="keywords" content="аниме девочки, аниме мальчики, кавай,">
+
+    <title>Магазин игрушек</title>
+    <style>
+        html {
+            font-size: 15px;
+        }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        h1,h2,h3,h4,h5,h6 {
+            margin: 0;
+        }
+
+        p {
+            margin: 0 0 10px;
+
+            font-size: 1rem;
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1030px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Page
+        ========================================*/
+
+        .page {
+            width: 100%;
+            height: 100vh;
+            min-height: 100vh;
+            position: relative;
+            overflow: auto;
+            background: #000
+            url("./img/bg.png") center
+            no-repeat;
+
+            background-size: cover;
+        }
+
+        /* Header
+        ========================================*/
+
+        .header {
+            padding: 1rem 0;
+            margin-bottom: 154px;
+
+            background: #2B7DED;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-brand {
+            font-size: 1.6rem;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .header-logo img {
+            display: block;    /* делаем img блочным убирая отступ снизу */
+        }
+
+        .header-nav {
+            display: flex;
+        }
+
+        .header-nav-link {
+            margin-left: 1.5rem;
+
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+
+            transition: color .2s linear;
+        }
+
+        .header-nav-link:hover {
+            color: aqua;
+        }
+
+        .header-nav-link.active {
+            position: relative;
+        }
+
+        .header-nav-link.active:after {
+            content: "";
+            width: 100%;
+            height: 2px;
+
+            background-color: white;
+
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+        }
+
+        /* Content
+        ========================================*/
+
+        .content {
+            height: 100%;
+            width: 100%;
+            max-width: 555px;
+        }
+
+        .content-header {
+            margin-bottom: 35px;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, .6);
+            font-weight: 300;
+        }
+
+        .title {
+            margin-bottom: 10px;
+            font-size: 2rem;
+            color: #fff;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .title span {
+            color: #2B7DED;
+        }
+
+        .text {
+            margin-bottom: 50px;
+
+            font-size: 1rem;
+            color: white;
+        }
+
+        /* Btn
+        ========================================*/
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+
+            font-family: inherit;
+            font-size: 1rem;
+            line-height: 1.1;
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+
+            cursor: pointer;
+            border: 0;
+            background-color: #2B7DED;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #1461cb;
+        }
+        .btn-full {
+            display: block;
+            width: 100%;
+        }
+
+        /* Autor
+        ========================================*/
+
+
+        .autor {
+            position: absolute;
+            width: 40%;
+
+            right: 20px;
+            bottom: 0;
+
+        }
+
+
+        /* Footer
+        ========================================*/
+
+        .footer {
+            width: 100%;
+
+            position: absolute;
+            bottom: 45px;
+            left: 0;
+        }
+
+
+        /* Contacts
+        ========================================*/
+
+        .contacts {
+            display: flex;
+            align-items: center;
+        }
+
+        .contacts-link {
+            margin-right: 2rem;
+
+            font-size: 1rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contacts-link:last-child {
+            margin-right: 0;
+            position: relative;
+        }
+
+        .contacts-link:last-child:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 2px;
+            margin-left: 2rem;
+
+            background-color: white;
+            pointer-events: none;
+
+            position: absolute;
+            left: 100%;
+            top: 11px;
+        }
+
+        .contacts-link:hover {
+            text-decoration: underline;
+        }
+
+        .contacts-icon {
+            margin-right: 5px;
+        }
+
+        /* Form
+        ========================================*/
+
+        .form {
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .input,
+        .textarea {
+            display: block;
+            width: 100%;
+            padding: 10px 18px;
+
+            font-family: inherit;
+            font-size: 1rem;
+            color: #fff;
+
+            border: 0;
+            background-color: rgba(255, 255, 255, .1);
+            border-radius: 5px;
+        }
+
+        .textarea {
+            height: 100px;
+            resize: none;
+        }
+
+
+        .input::placeholder,
+        .textarea::placeholder {
+            color: #fff;
+        }
+
+        /* Media
+        ========================================*/
+
+        @media (max-width: 1000px) {
+
+            .autor {
+                right: -100px;
+
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            .page {
+                min-height: 100vh;
+                height: auto;
+                padding-bottom: 2rem;
+            }
+            /* Header
+            ========*/
+            .header {
+                margin-bottom: 50px;
+            }
+            .header-logo {
+                display: none;
+            }
+            .header-brand {
+                font-size: 1.2rem;
+            }
+
+            /* Content
+            ========*/
+
+            .content {
+                max-width: none;
+                margin-bottom: 50px;
+
+                text-align: center;
+            }
+            /* Form
+            ========*/
+            .form {
+                margin: 0 auto;
+            }
+
+            /* Contacts
+        ========*/
+
+            .contacts {
+                flex-direction: column;
+            }
+            .contacts-link {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+            .contacts-link:last-child {
+                margin-bottom: 0;
+            }
+            .contacts-link:last-child:after {
+                display: none;
+            }
+
+            /* Footer
+            ========*/
+            .footer {
+                position: static;
+            }
+
+            .autor {
+                display: none;
+            }
+        }
+
+        @media (max-width: 565px) {
+
+            /* Header
+            ========*/
+
+            .header-inner {
+                flex-direction: column;
+            }
+            .header-brand {
+                margin-bottom: 1rem;
+            }
+
+        }
+
+        @media (max-width: 320px) {
+
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            .title {
+                font-size: 1.6rem;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="header-brand">
+                    МАГАЗИН ИГРУШЕК
+                </div>
+
+                <div class="header-nav">
+                    <a class="header-nav-link" href="autentication">Главная</a>
+                    <a class="header-nav-link  active" href="person_accaunt">Каталог</a>
+
+                </div>
+                <div>
+                    <form method="get" th:action="@{/cart}">
+                        <button class="btn btn-full" name="btn" type="submit">Корзина</button>
+                    </form>
+                </div>
+
+                <!-- История заказов -->
+                <div>
+                    <form method="get" th:action="@{/orders}">
+                        <button class="btn btn-full" name="btn" type="submit">История</button>
+                    </form>
+                </div>
+
+                <!-- Актуальная реализация логаута -->
+                <div>
+                    <form method="post" th:action="@{/logout}">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                        <button class="btn btn-full" name="btn" type="submit">Выйти</button>
+                    </form>
+                </div>
+
+            </div>
+        </div><!-- /.container -->
+    </header>
+
+
+
+    <!-- Main -->
+    <div class="container">
+        <main class="content">
+            <div class="content-header">
+                <h3 class="title">Сортировка, <span>поиск,</span> фильтрация</h3>
+            </div>
+            <div  class="text">
+                <form th:method="post" th:action="@{/product/search}">
+                    <fieldset>
+                        <legend>Параметры поиска, сортировки или фильтрации</legend>
+                        <label for="search">Поиск по наименованию товара</label>
+                        <input type="text" name="search" id="search"  th:value="*{value_search}">
+                        <br>
+                        <p>Цена, Р</p>
+                        <label for="ot">От</label>
+                        <input type="text" name="ot" id="ot" th:value="*{value_price_ot}">
+                        <label for="do">До</label>
+                        <input type="text" name="do" id="do" th:value="*{value_price_do}">
+                        <br>
+                        <br>
+                        <div>
+                            <input type="radio" id="ascending_price" name="price" value="sorted_by_ascending_price">
+                            <label for="ascending_price">Отсортировать по возрастанию цены</label>
+                            <br>
+                            <input type="radio" id="descending_price" name="price" value="sorted_by_descending_price">
+                            <label for="descending_price">Отсортировать по убыванию цены</label>
+                            <p>Категория товаров</p>
+                            <input type="radio" id="woman" name="contract" value="woman">
+                            <label for="woman">Женщины</label>
+                            <input type="radio" id="animals" name="contract" value="animals">
+                            <label for="animals">Животные</label>
+                            <input type="radio" id="man" name="contract" value="man">
+                            <label for="man">Мужчины</label>
+                            <br>
+                            <br>
+                            <input type="submit" value="Найти">
+                        </div>
+                    </fieldset>
+                </form>
+                <hr>
+                <h3>Результаты поиска, сортировки и фильтрации</h3>
+                <div th:each="product : ${search_product}">
+                    <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="250px">
+                    <br>
+                    <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
+                    <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+                    <a th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить товар в корзину</a>
+                    <hr>
+                </div>
+                <hr>
+                <h3>Список товаров</h3>
+                <div th:each="product : ${products}">
+                    <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="150px">
+                    <br>
+                    <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
+                    <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+                    <hr>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+
+        </div>
+
+
+    </footer>
+
+
+
+</div><!-- /.page -->
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="icon" type="image/png" href="../img/icon.svg">
+
+    <meta name="description" content="игрушки аниме, магазин игрушек,">
+    <meta name="keywords" content="аниме девочки, аниме мальчики, кавай,">
+
+    <title>Магазин игрушек</title>
+</head>
+<body>
+<div class="page">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="header-brand">
+                    МАГАЗИН ИГРУШЕК
+                </div>
+                <div class="header-logo">
+                    <img src="img/code.svg" alt="">
+                </div>
+                <div class="header-nav">
+                    <h2 class="subtitle">Администрирование</h2>
+                </div>
+                <div>
+                    <form method="post" th:action="@{/logout}">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                        <button class="btn btn-full" name="btn" type="submit">Выйти</button>
+                    </form>
+                </div>
+            </div>
+        </div><!-- /.container -->
+    </header>
+
+    <!-- Main -->
+    <div class="container">
+        <main class="content">
+            <div class="content-header">
+                <h1 class="title">Личный кабинет <span>администратора</span></h1>
+            </div>
+            <a href="admin/product/add">Добавить товар</a>
+            <hr>
+            <div th:each="product : ${products}">
+                <p th:text="'Наименование: ' + ${product.getTitle()}"></p>
+                <p th:text="'Описание: ' + ${product.getDescription()}"></p>
+                <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+                <p th:text="'Склад: ' + ${product.getWarehouse()}"></p>
+                <p th:text="'Продавец: ' + ${product.getSeller()}"></p>
+                <p th:text="'Категория товара: ' + ${product.getCategory().getName()}"></p>
+                <a th:href="@{/admin/product/edit/{id}(id=${product.getId()})}">Редактирование товара</a>
+                <a th:href="@{/admin/product/delete/{id}(id=${product.getId()})}">Удаление товара</a>
+            </div>
+            <hr>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="contacts">
+
+            </div>
+        </div>
+
+
+    </footer>
+
+</div><!-- /.page -->
+</body>
+</html>
